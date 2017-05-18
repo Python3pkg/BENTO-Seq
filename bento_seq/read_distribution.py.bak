@@ -91,7 +91,7 @@ class ReadDistribution(object):
         """
         start = -(self.read_length - min_overhang)
         end = - min_overhang + 1
-        return list(range(start, end))
+        return range(start, end)
 
     def inc(self, rel_pos, read):
         """Add a read to the distribution and keep a reference to it.

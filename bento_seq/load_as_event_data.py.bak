@@ -1,8 +1,8 @@
 import os
 import shutil
 import gzip
-import urllib.request, urllib.parse, urllib.error
-from urllib.parse import urljoin
+import urllib
+from urlparse import urljoin
 
 EVENTS_ROOT = 'http://www.psi.utoronto.ca/~hannes/bento-seq-events/'
 
@@ -63,8 +63,8 @@ def fetch(genome):
     try:
         gzip.open(dest, 'rb').close()
     except IOError:
-        print("Downloading %s from %s." % (genome, url))
-        downloader = urllib.request.urlopen(url)
+        print "Downloading %s from %s." % (genome, url)
+        downloader = urllib.urlopen(url)
         data = downloader.read()
         tmp = open(dest, 'wb')
         tmp.write(data)

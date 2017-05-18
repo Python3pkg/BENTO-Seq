@@ -178,8 +178,8 @@ class AltSpliceEvent(object):
 
             read_length = read_distribution.read_length
 
-            positions, reads = list(zip(
-                *read_distribution.to_list(min_overhang)))
+            positions, reads = zip(
+                *read_distribution.to_list(min_overhang))
             if self.strand == '-': reads = reads[::-1]
             self.junction_read_distributions.append(reads)
 
